@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>List of Clubs</h1>
+    *
+<a href="{{ path('classroom_new') }}">Add Classroom</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        {% for classroom in classrooms %}
+            <tr>
+                <td>{{ classroom.id }}</td>
+                <td>{{ classroom.name }}</td>
+                <td><a href="{{ path('classroom_edit', {'id': classroom.id}) }}">Edit</a>
+                <a href="{{ path('classroom_delete', {'id': classroom.id}) }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
